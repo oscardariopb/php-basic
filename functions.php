@@ -24,3 +24,10 @@ function get_data(string $url): array
 //         default => "$days dias hasta el estreno"
 //     };
 // }
+
+function render_template(string $template, array $data = [])
+{
+    extract($data); //extrae las variables de un array asociativo y las convierte en variables locales
+    // ya no es necesario hacer echo $data['title'] ahora se puede hacer echo $title
+    require "templates/$template.php";
+}

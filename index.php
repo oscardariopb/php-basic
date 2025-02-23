@@ -14,11 +14,12 @@ require_once 'functions.php'; //solo se carga una vez, si ya se cargo no lo vuel
 
 $title = 'hola';
 $data = get_data(API_URL);
+$optional_title = 'hola';
 //$until_message = get_until_message($data['days_until']);
 // subir contenido a zeabur desde un repo en github
 ?>
 
-<?php require 'sections/head.php' ?>
-<?php require 'sections/styles.php' ?>
-<?php require 'sections/main.php' ?>
-
+<?php render_template('head', $data) ?>
+<?php render_template('main', array_merge($data, ["optional_title" => $optional_title])) ?>
+<?php render_template('styles') ?>
+<!-- <php require 'sections/main.php' ?> -->
